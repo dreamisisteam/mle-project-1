@@ -1,4 +1,5 @@
 # environment
+.idea/
 .detection_project/
 
 # Model weights
