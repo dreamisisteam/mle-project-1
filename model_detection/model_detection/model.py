@@ -9,7 +9,12 @@ from ultralytics import YOLO
 class ObjectDetection:
     """Class for Object Detection"""
 
-    def __init__(self, weights: str = os.path.join(os.path.dirname(os.path.realpath(__file__)), "./models/yolov8x.pt")) -> None:
+    def __init__(
+        self,
+        weights: str = os.path.join(
+            os.path.dirname(os.path.realpath(__file__)), "./models/yolov8x.pt"
+        ),
+    ) -> None:
         self.model = YOLO(weights)
 
     def predict(

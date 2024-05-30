@@ -1,3 +1,3 @@
 from .model import ObjectDetection
 
-__all__ = ['ObjectDetection']
+__all__ = ["ObjectDetection"]
