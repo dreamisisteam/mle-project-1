@@ -1,6 +1,6 @@
-full: pre-commit test launch
+full: lint test launch
 
-pre-commit:
+lint:
 	pre-commit run --all-files
 
 test:
