@@ -11,7 +11,7 @@ setup(
     description="Extension for object detection",
     url="https://github.com/dreamisisteam/mle-project-1",
     author="A. Korchevsky, A. Kozhukhov",
-    packages=find_packages(),
+    packages=find_packages(exclude=("tests",)),
     python_requires=">=3.9, <4",
     install_requires=reqs,
     license="proprietary and confidential",

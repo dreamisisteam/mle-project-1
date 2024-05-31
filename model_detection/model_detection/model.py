@@ -15,6 +15,8 @@ class ObjectDetection:
             os.path.dirname(os.path.realpath(__file__)), "./models/yolov8x.pt"
         ),
     ) -> None:
+        """Weights loading takes time.
+        Better init model before usage and once"""
         self.model = YOLO(weights)
 
     def predict(
@@ -43,8 +45,8 @@ class ObjectDetection:
 
         if log_info:
             speed = result_images.speed
-            classes = result_images.boxes.cls.numpy().tolist()
-            confs = result_images.boxes.conf.numpy().tolist()
+            classes = result_images.boxes.cls.cpu().numpy().tolist()
+            confs = result_images.boxes.conf.cpu().numpy().tolist()
             class_names = [
                 result_images.names[key]
                 for key in classes
@@ -60,14 +62,3 @@ class ObjectDetection:
             return result_byte_io, logs
 
         return result_byte_io, None
-
-
-if __name__ == "__main__":
-    # test
-    with open("./assets/test_images/test.png", "rb") as image_string:
-        io_file = io.BytesIO(image_string.read())
-    model = ObjectDetection(weights="./models/yolov8x.pt")
-    results, logs = model.predict(io_file)
-    print(logs)
-    image = Image.open(results)
-    image.show()
