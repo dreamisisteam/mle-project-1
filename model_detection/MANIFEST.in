@@ -1,0 +1,8 @@
+recursive-include ./model_detection/*
+include ./model_detection/models/*.pt
+
+include ./requirements/requirements.txt
+include ./requirements/test_requirements.txt
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
