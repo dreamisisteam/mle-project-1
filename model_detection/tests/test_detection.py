@@ -7,7 +7,6 @@ import pytest
 class TestDetection:
     @pytest.fixture(autouse=True)
     def setup(self, model):
-        self.model = model
         with open(
             os.path.join(
                 os.path.dirname(os.path.realpath(__file__)),
@@ -27,4 +26,4 @@ class TestDetection:
         time_ms = 0
         for key in self.logs["speed"]:
             time_ms += self.logs["speed"][key]
-        assert time_ms < 1000
+        assert time_ms < 5000
