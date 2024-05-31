@@ -8,7 +8,7 @@ from pydantic import BaseModel
 
 try:
     # import from source
-    from model_detection.model_detection import model
+    from model_detection.model_detection import model  # type: ignore
 except ImportError:
     # import from library
     from model_detection import model
