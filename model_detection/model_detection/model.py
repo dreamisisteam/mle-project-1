@@ -15,7 +15,8 @@ class ObjectDetection:
             os.path.dirname(os.path.realpath(__file__)), "./models/yolov8x.pt"
         ),
     ) -> None:
-        """Weights loading takes time. Better init model before usage and once"""
+        """Weights loading takes time.
+        Better init model before usage and once"""
         self.model = YOLO(weights)
 
     def predict(
